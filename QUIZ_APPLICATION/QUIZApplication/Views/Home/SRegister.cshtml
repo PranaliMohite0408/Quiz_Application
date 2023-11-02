@@ -1,0 +1,84 @@
+﻿@model QUIZApplication.Models.Student
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Student Registration</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body{
+            margin-top:20px;
+            margin-left:400px;
+        }
+        .data {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    @Html.Raw(TempData["msg"])
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Student Registration</h3>
+                    </div>
+                    <div class="panel-body  data">
+                        @using (Html.BeginForm("SRegister", "Home", FormMethod.Post,new{ enctype  = "multipart/form-data" ,  @class = "form-vertical" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <!-- Your form fields and elements here -->
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Std_Name, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.TextBoxFor(model => model.Std_Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Std_Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Std_Password, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.PasswordFor(model => model.Std_Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Std_Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Std_Image, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.TextBoxFor(model => model.Std_Image, new { type = "file", @class = "form-control" })
+
+                                    @Html.ValidationMessageFor(model => model.Std_Image, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <div>
+                                    <input type="submit" style="margin-top:10px;" value="Register" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

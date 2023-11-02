@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+    @RenderSection("head", required: false)
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="background-color: #808080; height: 900px;">
+            <div class="list-group">
+
+                @Html.ActionLink("Add Category", "AddCategory", null, new { @class = "btn btn-primary btn-block" })
+
+                @Html.ActionLink("Add Questions", "AddQuestions", null, new { @class = "btn btn-primary btn-block" })
+                @Html.ActionLink("Reports", "Dashboard", null, new { @class = "btn btn-primary btn-block" })
+                @Html.ActionLink("Logout", "Logout", null, new { @class = "btn btn-primary btn-block" })
+
+            </div>    
+
+        </div>
+
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="border: 1px solid gray; height: 900px;">
+            @RenderBody()
+        </div>
+    </div>
+
+   
+</body>
+</html>

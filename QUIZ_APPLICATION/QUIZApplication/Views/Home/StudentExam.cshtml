@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StudentExam</title>
+</head>
+<body>
+    @if (ViewBag.error != null)
+    {
+        <div class="alert alert-danger">
+           @ViewBag.error
+        </div>
+    }
+
+
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                    <h1>Enter Room Number</h1>
+                    <div class="input-group">
+                        <input type="text" id="room" name="room" placeholder="Enter Room Number" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" type="submit">Submit</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

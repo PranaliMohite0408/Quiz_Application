@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="59e93f55d78a41fd9ce9e6a76453930b" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="QuizAppDBModel.Admin" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizAppDBModel.SetExam" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizAppDBModel.Student" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="QuizAppDBModel.FK__SetExam__Std_Id__398D8EEE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuizAppDBModel.Category" Width="1.5" PointX="3" PointY="8.625" />
+        <AssociationConnector Association="QuizAppDBModel.FK_Category_ToTable" />
+        <EntityTypeShape EntityType="QuizAppDBModel.Tbl_Questions" Width="1.5" PointX="6.625" PointY="6.75" />
+        <AssociationConnector Association="QuizAppDBModel.FK_Tbl_Questions_Category" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

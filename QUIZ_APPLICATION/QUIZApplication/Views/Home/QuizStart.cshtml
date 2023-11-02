@@ -1,0 +1,48 @@
+﻿@model QUIZApplication.Models.Tbl_Questions
+
+@using (Html.BeginForm("QuizStart", "Home", new {id = Model.Q_Id}, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <h3>Your Quiz Start</h3>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-body form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Q_Text, htmlAttributes: new { @class = "control-label heading" })
+                            <div class="col-md-12">
+                                <div class="question-text">
+                                    @Html.DisplayFor(model => model.Q_Text)
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Q_Text, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group data">
+                            <div class="col-md-12">
+                                @foreach (var option in (List<string>)ViewData["Options"])
+                                {
+                                    <label class="radio-inline">
+                                        <input type="radio" name="SelectedOption" value="@option" />
+                                        @option
+                                    </label>
+                                    <br />
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group data">
+                            <div class="col-md-12">
+                                <input type="submit" value="Submit" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
